@@ -1,9 +1,12 @@
+// Get references to the canvas, context, spin button, and input textarea
 const canvas = document.getElementById('wheelCanvas');
 const ctx = canvas.getContext('2d');
 const spinButton = document.getElementById('spinButton');
 const inputTextarea = document.getElementById('inputTextarea');
+
+// Array to store segment colors
 const colors = ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF', '#00FFFF'];
-let segments = [];
+let segments = []; // Array to store the text segments
 
 // Function to set canvas size based on screen size
 function setCanvasSize() {
@@ -15,13 +18,17 @@ function setCanvasSize() {
 // Set initial canvas size
 setCanvasSize();
 
-
+// Function to draw the wheel segments
 function drawWheel() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     const radius = Math.min(canvas.width, canvas.height) / 2 * 0.8; // Adjust factor for size
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
     let startAngle = 0;
+
+    // Set minimum and maximum text sizes
+    const minTextSize = 15; // Minimum text size
+    const maxTextSize = 100; // Maximum text size
 
     for (let i = 0; i < segments.length; i++) {
         ctx.beginPath();
@@ -31,21 +38,33 @@ function drawWheel() {
         ctx.fillStyle = colors[i % colors.length];
         ctx.fill();
 
+        // Calculate dynamic text size based on segment size
+        const segmentAngle = (Math.PI * 2) / segments.length;
+        const textAngle = startAngle + segmentAngle / 2;
+        const textX = centerX + Math.cos(textAngle) * radius * 0.6;
+        const textY = centerY + Math.sin(textAngle) * radius * 0.6;
+        
+        // Calculate text size based on segment size
+        const text = segments[i];
+        let textSize = Math.min(maxTextSize, (radius * segmentAngle * 0.4) / text.length); // Adjust the factor as needed
+        textSize = Math.max(minTextSize, textSize); // Ensure it doesn't become too small
+
         // Draw segment text
         ctx.fillStyle = '#000';
+        ctx.font = `bold ${textSize}px Arial`; // Set the dynamic font size
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        const textAngle = startAngle + (Math.PI * 2) / segments.length / 2;
-        const textX = centerX + Math.cos(textAngle) * radius * 0.6; // Adjust factor for text position
-        const textY = centerY + Math.sin(textAngle) * radius * 0.6; // Adjust factor for text position
-        ctx.fillText(segments[i], textX, textY);
+        ctx.fillText(text, textX, textY);
 
-        startAngle += (Math.PI * 2) / segments.length;
+        startAngle += segmentAngle;
     }
-
-    
 }
 
+
+
+
+
+// Function to spin the wheel
 function spinWheel() {
     let angle = 0;
     let spinTime = 0;
@@ -74,6 +93,7 @@ function spinWheel() {
         if (spinTime < totalSpinTime) {
             requestAnimationFrame(spinWheelFrame);
         } else {
+            // Determine the winning segment and display a message
             const adjustedAngle = angle + Math.PI / 2; // Adjust for the 12 o'clock position
             const winningSegmentIndex = Math.floor((adjustedAngle % (2 * Math.PI)) / (2 * Math.PI / segments.length));
             const winner = segments[segments.length - 1 - winningSegmentIndex];
@@ -85,12 +105,14 @@ function spinWheel() {
     requestAnimationFrame(spinWheelFrame);
 }
 
+// Event listener for input changes in the textarea
 inputTextarea.addEventListener('input', () => {
     const inputLines = inputTextarea.value.trim().split('\n');
-    segments = inputLines.filter(line => line.trim() !== '');
-    drawWheel();
+    segments = inputLines.filter(line => line.trim() !== ''); // Update segments array
+    drawWheel(); // Redraw the wheel with updated segments
 });
 
+// Event listener for the spin button click
 spinButton.addEventListener('click', () => {
     if (segments.length > 0) {
         spinButton.disabled = true;
@@ -100,15 +122,13 @@ spinButton.addEventListener('click', () => {
     }
 });
 
-
 // Initial draw to show empty wheel
 drawWheel();
+// Event listener for window resize
 window.addEventListener('resize', setCanvasSize);
 
-//navigation scripts
-
+// Function to toggle the navigation menu display
 function toggleNav() {
     var nav = document.querySelector('nav');
     nav.style.display = nav.style.display === 'none' ? 'block' : 'none';
 }
-
