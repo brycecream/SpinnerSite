@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spin Wheel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <button class="navButton" onclick="toggleNav()">
+            <img src="cogwheel.png" alt="Settings">
+        </button>
+        <h1 style="flex: 1;">Candy Wheel</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>option 1</li>
+            <li>option 2</li>
+            <li>option 3</li>
+        </ul>
+    </nav>
+    <div class="main-container">
+        
+        <div class="content-container">
+            <div class="wheel-container">
+                <canvas id="wheelCanvas"></canvas>
+                <div class="indicator"></div>
+            </div>
+            <textarea id="inputTextarea" placeholder="Enter segments (one per line)"></textarea>
+            <button id="spinButton">Spin</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
