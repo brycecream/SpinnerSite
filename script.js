@@ -1,8 +1,10 @@
-// Get references to the canvas, context, spin button, and input textarea
+// Get references to the canvas, context, spin button, input textarea, spin time range, and spin time value
 const canvas = document.getElementById('wheelCanvas');
 const ctx = canvas.getContext('2d');
 const spinButton = document.getElementById('spinButton');
 const inputTextarea = document.getElementById('inputTextarea');
+const spinTimeRange = document.getElementById('spinTimeRange');
+const spinTimeValue = document.getElementById('spinTimeValue');
 
 // Array to store segment colors
 const colors = ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF', '#00FFFF'];
@@ -60,17 +62,13 @@ function drawWheel() {
     }
 }
 
-
-
-
-
 // Function to spin the wheel
 function spinWheel() {
     let angle = 0;
     let spinTime = 0;
     let startSpinTime;
     const spins = Math.random() * 5 + 5; // Random number of full spins
-    const totalSpinTime = 3000 + Math.random() * 2000; // Random total time for spin
+    const totalSpinTime = parseFloat(spinTimeRange.value) * 1000; // Spin time in milliseconds
 
     function spinWheelFrame(timestamp) {
         if (!startSpinTime) {
@@ -122,13 +120,41 @@ spinButton.addEventListener('click', () => {
     }
 });
 
+// Event listener for the spin time range input
+spinTimeRange.addEventListener('input', () => {
+    spinTimeValue.textContent = spinTimeRange.value;
+});
+
 // Initial draw to show empty wheel
 drawWheel();
+
 // Event listener for window resize
 window.addEventListener('resize', setCanvasSize);
 
+// Get references to the nav button and nav element
+const navButton = document.querySelector('.navButton');
+const nav = document.querySelector('nav');
+
 // Function to toggle the navigation menu display
 function toggleNav() {
-    var nav = document.querySelector('nav');
-    nav.style.display = nav.style.display === 'none' ? 'block' : 'none';
+    nav.classList.toggle('show');
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  

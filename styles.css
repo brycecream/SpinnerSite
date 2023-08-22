@@ -1,120 +1,127 @@
 body {
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative; /* Add this */
-    z-index: 2; /* Add this */
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative; /* Add this */
+  z-index: 2; /* Add this */
 }
 
 .navButton {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
+
 nav {
-    background-color: #555;
-    color: #fff;
-    padding: 10px;
-    width: 200px;
-    display: none; /* Change to 'none' */
-    position: fixed;
-    top: 100px;
-    left: 0;
-    z-index: 3;
+  background-color: #555;
+  color: #fff;
+  padding: 10px;
+  width: 200px;
+  display: none;
+  position: fixed;
+  top: 70px; /* Adjust the top position as needed */
+  left: 0;
+  z-index: 1000; /* Increase the z-index to ensure it's on top of other elements */
 }
 
 nav.show {
-    display: block;
+  display: block;
 }
 
 nav ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 nav ul li {
-    margin: 5px 0;
+  margin: 5px 0;
 }
 
 .main-container {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .content-container {
-    text-align: center;
-    padding: 20px;
-    box-sizing: border-box;
-    flex: 1;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  flex: 1;
 }
 
 .wheel-container {
-    position: relative;
+  position: relative;
 }
 
 #wheelCanvas {
-    border: 2px solid transparent;
+  border: 2px solid transparent;
 }
 
 .indicator {
-    position: absolute;
-    width: 0;
-    border: 30px solid transparent;
-    border-bottom-color: red;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%) rotate(180deg);
+  position: absolute;
+  width: 0;
+  border: 30px solid transparent;
+  border-bottom-color: red;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg);
 }
 
 button:disabled {
-    background: #ccc;
-    cursor: not-allowed;
+  background: #ccc;
+  cursor: not-allowed;
 }
 
 input,
 button {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 
 .navButton {
-    background-color:  #333; /* Green background color */
-    border: none;
-    padding: 20px; /* Adjust padding for size */
-    cursor: pointer;
-    border-radius: 50%; /* Make it a circle */
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    transition: background-color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+  background-color:  #333; /* Green background color */
+  border: none;
+  padding: 20px; /* Adjust padding for size */
+  cursor: pointer;
+  border-radius: 50%; /* Make it a circle */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  transition: background-color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
 }
 
 .navButton:hover {
-    background-color: #221f1f; /* Slightly darker green on hover */
-    transform: scale(1.1); /* Slight scale-up on hover */
-    filter: brightness(90%); /* Slightly darken the icon on hover */
+  background-color: #221f1f; /* Slightly darker green on hover */
+  transform: scale(1.1); /* Slight scale-up on hover */
+  filter: brightness(90%); /* Slightly darken the icon on hover */
 }
 
 img {
-    width: 40px; /* Adjust the size of the icon */
-    height: 40px;
-    display: block;
-    margin: auto;
+  width: 40px; /* Adjust the size of the icon */
+  height: 40px;
+  display: block;
+  margin: auto;
 }
+
+
+
+
+
+
 
