@@ -112,12 +112,61 @@ button {
   filter: brightness(90%); /* Slightly darken the icon on hover */
 }
 
+#muteButton {
+  background-color: #333;
+  border: none;
+  padding: 20px; /* Adjust padding for size */
+  cursor: pointer;
+  border-radius: 50%; /* Make it a circle */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  transition: background-color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+}
+
+#muteButton:hover {
+  background-color: #221f1f; /* Slightly darker color on hover */
+  transform: scale(1.1); /* Slight scale-up on hover */
+  filter: brightness(90%); /* Slightly darken the icon on hover */
+}
+
+#muteButton img {
+  width: 40px; /* Adjust the size of the icon */
+  height: 40px;
+  display: block;
+  margin: auto;
+}
+
+
 img {
   width: 40px; /* Adjust the size of the icon */
   height: 40px;
   display: block;
   margin: auto;
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+}
+
 
 
 

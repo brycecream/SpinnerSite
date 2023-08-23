@@ -5,6 +5,12 @@ const spinButton = document.getElementById('spinButton');
 const inputTextarea = document.getElementById('inputTextarea');
 const spinTimeRange = document.getElementById('spinTimeRange');
 const spinTimeValue = document.getElementById('spinTimeValue');
+const backgroundMusic = document.getElementById('backgroundMusic');
+const soundEffect = document.getElementById('soundEffect');
+const modal = document.getElementById('winnerModal');
+const closeModal = document.getElementById('closeModal');
+
+
 
 // Array to store segment colors
 const colors = ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF', '#00FFFF'];
@@ -12,8 +18,8 @@ let segments = []; // Array to store the text segments
 
 // Function to set canvas size based on screen size
 function setCanvasSize() {
-    canvas.width = window.innerWidth * 0.8; // Adjust the factor as needed
-    canvas.height = window.innerHeight * 0.6; // Adjust the factor as needed
+    canvas.width = window.innerWidth * 0.9; // Adjust the factor as needed
+    canvas.height = window.innerHeight * 0.8; // Adjust the factor as needed
     drawWheel(); // Redraw the wheel when canvas size changes
 }
 
@@ -95,7 +101,10 @@ function spinWheel() {
             const adjustedAngle = angle + Math.PI / 2; // Adjust for the 12 o'clock position
             const winningSegmentIndex = Math.floor((adjustedAngle % (2 * Math.PI)) / (2 * Math.PI / segments.length));
             const winner = segments[segments.length - 1 - winningSegmentIndex];
-            alert(`Winner is: ${winner}`);
+
+            // Display the winner in the modal
+            document.getElementById('winnerMessage').textContent = `Winner is: ${winner}`;
+            document.getElementById('winnerModal').style.display = 'block';
             spinButton.disabled = false;
         }
     }
@@ -141,8 +150,63 @@ function toggleNav() {
 }
 
 
+// Add event listener to the Spin button
+spinButton.addEventListener('click', () => {
+    // Play the background music
+    backgroundMusic.play();
+    
+    // Get the selected spin time from the range input
+    const selectedTime = parseInt(spinTimeRange.value, 10) * 1000; // Convert to milliseconds
+    
+    // Stop the music after the selected spin time
+    setTimeout(() => {
+        backgroundMusic.pause();
+        backgroundMusic.currentTime = 0; // Reset to the beginning
+        
+        // Play the sound effect once
+        soundEffect.play();
+    }, selectedTime);
+});
 
+// When the user clicks on the close button, close the modal
+closeModal.onclick = () => {
+    modal.style.display = 'none';
+};
 
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = event => {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+};
+
+document.getElementById('deleteSegmentButton').addEventListener('click', () => {
+    const winnerMessage = document.getElementById('winnerMessage').textContent;
+    const winner = winnerMessage.replace('Winner is: ', '');
+    
+    // Filter out all segments with the same content as the winner
+    segments = segments.filter(segment => segment !== winner);
+
+    drawWheel(); // Redraw the wheel with updated segments
+    document.getElementById('winnerModal').style.display = 'none'; // Close the modal
+
+    // Update the input textarea
+    document.getElementById('inputTextarea').value = segments.join('\n');
+});
+
+let isMuted = false;
+
+function toggleMute() {
+    isMuted = !isMuted;
+
+    // Update the mute image based on the mute state
+    const muteImage = document.getElementById('muteImage');
+    muteImage.src = isMuted ? 'mute.png' : 'sound.png';
+
+    // Toggle mute on both the music and sound effect elements
+    backgroundMusic.muted = isMuted;
+    soundEffect.muted = isMuted;
+}
 
 
 

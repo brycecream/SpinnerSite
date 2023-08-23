@@ -14,18 +14,19 @@
         <h1 style="flex: 1;">Candy Wheel</h1>
     </header>
     <nav>
-        <ul>
-            
-              <li>
-                <label for="spinTimeRange">Spin Time:</label>
-                <input type="range" id="spinTimeRange" min="5" max="30" value="10">
-                <span id="spinTimeValue">10</span> seconds
-            </li>
-            
-            <li>option 1</li>
-            <li>option 2</li>
-            <li>option 3</li>
+       <ul>
+        <li>
+            <label for="spinTimeRange">Spin Time:</label>
+            <input type="range" id="spinTimeRange" min="5" max="30" value="10">
+            <span id="spinTimeValue">10</span> seconds
+        </li>
+            <li>
+                <button id="muteButton" onclick="toggleMute()">
+                    <img id="muteImage" src="sound.png" alt="Toggle Sound">
+                 </button>
+             </li>
         </ul>
+
     </nav>
     
     <div class="main-container">
@@ -39,6 +40,24 @@
             <button id="spinButton">Spin</button>
         </div>
     </div>
+    <audio id="backgroundMusic" loop>
+        <source src="happycute.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <!-- Add an audio element for the sound effect -->
+    <audio id="soundEffect">
+        <source src="gamebonus.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div id="winnerModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <p id="winnerMessage">Winner is:</p>
+            <button id="deleteSegmentButton">Remove Winner from Wheel?</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 
