@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spin Wheel</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.131.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.131.2/examples/js/loaders/GLTFLoader.js"></script>
 </head>
 <body>
     <header>
@@ -59,8 +61,12 @@
             <button id="deleteSegmentButton">Remove Winner from Wheel?</button>
         </div>
     </div>
+    <div id="three-container"></div> <!-- Container for the Three.js scene -->
+
 
     <script src="script.js"></script>
+    <script type="module" src="main.js"></script> <!-- Including the main.js file -->
+</body>
 </body>
 
 </html>
