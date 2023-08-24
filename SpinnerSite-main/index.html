@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spin Wheel</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.131.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.131.2/examples/js/loaders/GLTFLoader.js"></script>
+</head>
+<body>
+    <header>
+        <button class="navButton" onclick="toggleNav()">
+            <img src="cogwheel.png" alt="Settings">
+        </button>
+        <h1 style="flex: 1;">Candy Wheel</h1>
+    </header>
+    <nav>
+       <ul>
+             <li>
+                <label for="spinTimeRange">Spin Time:</label>
+                <input type="range" id="spinTimeRange" min="5" max="30" value="10">
+                 <span id="spinTimeValue">10</span> seconds
+             </li>
+            <li>
+                <button id="muteButton" onclick="toggleMute()">
+                    <img id="muteImage" src="sound.png" alt="Toggle Sound">
+                 </button>
+             </li>
+             <li>option 1</li>
+             <li>option 2</li>
+             <li>option 3</li>
+             <li>option 4</li>
+        </ul>
+
+    </nav>
+    
+   
+<div class="main-container">
+    <div class="content-container">
+        <div class="wheel-container">
+            <canvas id="wheelCanvas"></canvas>
+            <div class="indicator"></div>
+        </div>
+        <div class="input-spin-container">
+            <div class="input-container">
+                <textarea id="inputTextarea" placeholder="Enter entries (one per line)"></textarea>
+                <button id="spinButton">
+                    <img src="spin.png" alt="spin">
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    <audio id="backgroundMusic" loop>
+        <source src="Fiesta Fred.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <!-- Add an audio element for the sound effect -->
+    <audio id="soundEffect">
+        <source src="tadaa.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div id="winnerModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <p id="winnerMessage">Winner is:</p>
+            <button id="deleteSegmentButton">Remove Winner from Wheel?</button>
+        </div>
+    </div>
+    <div id="three-container"></div> <!-- Container for the Three.js scene -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="copyright">
+                &copy; <span id="year"></span> Bryce Cream Tools
+            </div>
+            <div class="music-info">
+                Track: "Fiesta Fred"<br>
+                Music provided by <a href="https://slip.stream" target="_blank">slip.stream</a><br>
+                Free Download / Stream: <a href="https://slip.stream/tracks/1a2d6bfd-e601-4d68-80ef-6473b19dcc92?utm_source=attribution" target="_blank">here</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('year').innerHTML = new Date().getFullYear();
+    </script>
+
+    <script src="script.js"></script>
+    <script type="module" src="main.js"></script> <!-- Including the main.js file -->
+</body>
+
+
+</html>

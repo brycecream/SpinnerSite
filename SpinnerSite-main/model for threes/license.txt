@@ -1,0 +1,11 @@
+Model Information:
+* title:	Candy
+* source:	https://sketchfab.com/3d-models/candy-89577dee6d474ee79a50cc59c12f0b3d
+* author:	kennedy.adams (https://sketchfab.com/kennedy.adams)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Candy" (https://sketchfab.com/3d-models/candy-89577dee6d474ee79a50cc59c12f0b3d) by kennedy.adams (https://sketchfab.com/kennedy.adams) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

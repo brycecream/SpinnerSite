@@ -1,0 +1,293 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative; /* Add this */
+  z-index: 2; /* Add this */
+}
+
+header {
+  background-color: #333; /* Existing color or choose another one */
+  /* rest of the properties remain unchanged */
+}
+
+
+.navButton {
+  margin-left: 10px;
+}
+
+
+nav {
+  background-color: #555;
+  color: #fff;
+  padding: 10px;
+  width: 300px;
+  display: none;
+  position: fixed;
+  top: 110px; /* Adjust the top position as needed */
+  left: 0;
+  z-index: 1000; /* Increase the z-index to ensure it's on top of other elements */
+}
+
+nav.show {
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 5px 0;
+}
+
+.main-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-spin-container {
+  display: flex;
+  align-items: center;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
+#inputTextarea {
+  width: auto; /* Let it expand to the available width */
+  height: auto; /* Let it expand to the available height */
+  min-width: 100px; /* Set minimum width to avoid collapsing */
+  min-height: 300px; /* Set minimum height to avoid collapsing */
+  resize: none; /* Disable resizing */
+  margin-right: 10px; /* Add margin between textarea and button */
+}
+
+
+#spinButton {
+  margin-top: 10px;
+}
+
+
+
+.wheel-container {
+  position: relative;
+}
+
+#wheelCanvas {
+  border: 2px solid transparent;
+}
+
+.indicator {
+  position: absolute;
+  width: 0;
+  border: 30px solid transparent;
+  border-bottom-color: red;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg);
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+input,
+button {
+  margin-top: 10px;
+}
+
+
+.navButton {
+  background-color:  #333; /* Green background color */
+  border: none;
+  padding: 20px; /* Adjust padding for size */
+  cursor: pointer;
+  border-radius: 50%; /* Make it a circle */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  transition: background-color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+}
+
+.navButton:hover {
+  background-color: #221f1f; /* Slightly darker green on hover */
+  transform: scale(1.1); /* Slight scale-up on hover */
+  filter: brightness(90%); /* Slightly darken the icon on hover */
+}
+
+#muteButton {
+  background-color: #333;
+  border: none;
+  padding: 20px; /* Adjust padding for size */
+  cursor: pointer;
+  border-radius: 50%; /* Make it a circle */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  transition: background-color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+}
+
+#muteButton:hover {
+  background-color: #221f1f; /* Slightly darker color on hover */
+  transform: scale(1.1); /* Slight scale-up on hover */
+  filter: brightness(90%); /* Slightly darken the icon on hover */
+}
+
+#muteButton img {
+  width: 40px; /* Adjust the size of the icon */
+  height: 40px;
+  display: block;
+  margin: auto;
+}
+
+#spinButton {
+  background-color: #333;
+  border: none;
+  padding: 20px; /* Adjust padding for size */
+  cursor: pointer;
+  border-radius: 50%; /* Make it a circle */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  transition: background-color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+}
+
+#spinButton:hover {
+  background-color: #221f1f; /* Slightly darker color on hover */
+  transform: scale(1.1); /* Slight scale-up on hover */
+  filter: brightness(90%); /* Slightly darken the icon on hover */
+}
+
+#spinButton img {
+  width: 100px; /* Adjust the size of the icon */
+  height: 100px;
+  display: block;
+  margin: auto;
+}
+
+
+img {
+  width: 40px; /* Adjust the size of the icon */
+  height: 40px;
+  display: block;
+  margin: auto;
+}
+
+#winnerModal {
+  display: none;
+}
+
+.modal-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  background-color: #fff;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  max-width: 90%;
+}
+
+#closeModal {
+  float: right;
+  cursor: pointer;
+  font-size: 24px; /* Increase the font size */
+}
+
+#winnerMessage {
+  font-size: 50px; /* Increase the font size */
+  margin-bottom: 20px; /* Add margin at the bottom */
+}
+
+#deleteSegmentButton {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 15px 30px; /* Increase padding for larger button */
+  cursor: pointer;
+  border-radius: 8px; /* Larger border radius */
+  font-size: 18px; /* Increase the font size */
+  transition: background-color 0.3s ease;
+}
+
+#deleteSegmentButton:hover {
+  background-color: #221f1f; /* Slightly darker color on hover */
+}
+
+
+#three-container {
+  position: fixed; /* Fixed position */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place it behind other content */
+  overflow: hidden;
+}
+
+.site-footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  font-size: 14px;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.copyright {
+  margin-bottom: 10px;
+}
+
+.music-info {
+  text-align: center;
+}
+
+.music-info a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .footer-content {
+      flex-direction: row;
+      justify-content: space-between;
+  }
+}
+
+
+
+
+
+
