@@ -18,8 +18,8 @@ let segments = []; // Array to store the text segments
 
 // Function to set canvas size based on screen size
 function setCanvasSize() {
-    canvas.width = window.innerWidth * 0.9; // Adjust the factor as needed
-    canvas.height = window.innerHeight * 0.8; // Adjust the factor as needed
+    canvas.width = window.innerWidth * 0.5; // Adjust the factor as needed
+    canvas.height = window.innerHeight * 1; // Adjust the factor as needed
     drawWheel(); // Redraw the wheel when canvas size changes
 }
 
@@ -29,14 +29,14 @@ setCanvasSize();
 // Function to draw the wheel segments
 function drawWheel() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    const radius = Math.min(canvas.width, canvas.height) / 2 * 0.8; // Adjust factor for size
+    const radius = Math.min(canvas.width, canvas.height) / 1.9 * 0.8; // Adjust factor for size
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
     let startAngle = 0;
 
     // Set minimum and maximum text sizes
-    const minTextSize = 15; // Minimum text size
-    const maxTextSize = 100; // Maximum text size
+    const minTextSize = 50; // Minimum text size
+    const maxTextSize = 200; // Maximum text size
 
     for (let i = 0; i < segments.length; i++) {
         ctx.beginPath();

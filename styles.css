@@ -67,11 +67,36 @@ nav ul li {
 }
 
 .content-container {
-  text-align: center;
-  padding: 20px;
-  box-sizing: border-box;
-  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.input-spin-container {
+  display: flex;
+  align-items: center;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
+#inputTextarea {
+  width: auto; /* Let it expand to the available width */
+  height: auto; /* Let it expand to the available height */
+  min-width: 100px; /* Set minimum width to avoid collapsing */
+  min-height: 300px; /* Set minimum height to avoid collapsing */
+  resize: none; /* Disable resizing */
+  margin-right: 10px; /* Add margin between textarea and button */
+}
+
+
+#spinButton {
+  margin-top: 10px;
+}
+
+
 
 .wheel-container {
   position: relative;
@@ -158,8 +183,8 @@ button {
 }
 
 #spinButton img {
-  width: 50px; /* Adjust the size of the icon */
-  height: 50px;
+  width: 100px; /* Adjust the size of the icon */
+  height: 100px;
   display: block;
   margin: auto;
 }
@@ -172,14 +197,8 @@ img {
   margin: auto;
 }
 
-.modal {
+#winnerModal {
   display: none;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
@@ -187,14 +206,39 @@ img {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  padding: 20px;
+  padding: 30px;
   background-color: #fff;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  max-width: 90%;
 }
 
-.close {
+#closeModal {
   float: right;
   cursor: pointer;
+  font-size: 24px; /* Increase the font size */
 }
+
+#winnerMessage {
+  font-size: 50px; /* Increase the font size */
+  margin-bottom: 20px; /* Add margin at the bottom */
+}
+
+#deleteSegmentButton {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 15px 30px; /* Increase padding for larger button */
+  cursor: pointer;
+  border-radius: 8px; /* Larger border radius */
+  font-size: 18px; /* Increase the font size */
+  transition: background-color 0.3s ease;
+}
+
+#deleteSegmentButton:hover {
+  background-color: #221f1f; /* Slightly darker color on hover */
+}
+
 
 #three-container {
   position: fixed; /* Fixed position */
@@ -206,6 +250,41 @@ img {
   overflow: hidden;
 }
 
+.site-footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  font-size: 14px;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.copyright {
+  margin-bottom: 10px;
+}
+
+.music-info {
+  text-align: center;
+}
+
+.music-info a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .footer-content {
+      flex-direction: row;
+      justify-content: space-between;
+  }
+}
 
 
 
